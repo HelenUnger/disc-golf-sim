@@ -4,8 +4,10 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 console.log('hello');
 console.log(data);
 
-const canvasWidth = 500;
-const canvasHeight = 500;
+const canvasWidth = window.innerWidth;
+const canvasHeight = window.innerHeight;
+
+console.log(canvasWidth, canvasHeight);
 
 var discGolfData = data;
 console.log(discGolfData[0]);
@@ -17,14 +19,14 @@ document.body.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 
 //create a blue LineBasicMaterial
-const material = new THREE.LineBasicMaterial({ color: 0x0000ff, linewidth: 1500, fog: false });
+const material = new THREE.LineBasicMaterial({ color: 0x0000ff, linewidth: 1, fog: false });
 
 const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
 
 const controls = new OrbitControls( camera, renderer.domElement );
 
 // const camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 1, 500);
-camera.position.set(0, canvasWidth / 2, 300);
+camera.position.set(0, canvasWidth / 2, 1500);
 camera.lookAt(0, canvasHeight / 2, 0);
 
 controls.update();
